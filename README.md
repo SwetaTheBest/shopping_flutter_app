@@ -1,16 +1,8 @@
-# assignment_dec_flutter_app
 
-Assignment on Dec 31, 2020
+# Assignment Dec 31, 2020
 
-## Getting Started
+<img src="https://avatars1.githubusercontent.com/u/14101776?s=200&v=4" alt="Simple Icons" width=400 height=400>
 
-This project is a starting point for a Flutter application.
+> With love from  **Sweta** 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.SkoKdkU1v02J7ycFl2b2twHaHa%26pid%3DApi&f=1" alt="Simple Icons" width=300 height=300>
