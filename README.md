@@ -5,13 +5,13 @@
 
 ![Navigation Drawer](/android/app/src/main/res/drawable/screen_drawer.png)
 
-1. `Bottom Navigation`
+2. `Bottom Navigation`
 
 ![Bottom Navigation](/android/app/src/main/res/drawable/about_us.png)
 
 
 
-1. With love from  **Sweta** 
+# With love from  **Sweta** 
 
 ![Sweta Jain](/android/app/src/main/res/drawable/sweta_4.png)
 
