@@ -57,6 +57,11 @@ class _FormState extends State<LoginScreen> {
         new RaisedButton(
           onPressed: _submit,
           child: new Text('Login'),
+        ),
+        new SizedBox(height: 15.0),
+        new RaisedButton(
+          onPressed: _submit,
+          child: new Text('Logout'),
         )
       ],
     );

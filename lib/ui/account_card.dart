@@ -1,7 +1,7 @@
+import 'package:assignment_dec_flutter_app/cloud/jewel_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:assignment_dec_flutter_app/cloud/firebase_data.dart';
 
 class AccountCard extends StatelessWidget {
   final QuerySnapshot snap;
@@ -19,26 +19,29 @@ class AccountCard extends StatelessWidget {
         TextEditingController(text: snapData["title"]);
     TextEditingController descriptionInputController =
         TextEditingController(text: snapData["description"]);
+    TextEditingController imgInputController =
+        TextEditingController(text: snapData["img"]);
 
     var timeToDate = DateTime.fromMillisecondsSinceEpoch(
         snapData["timestamp"].seconds * 1000);
     var formattedDate = new DateFormat("EEEE, MMM d, y").format(timeToDate);
-    return Column(
-      children: <Widget>[
-        Container(
-          height: 200,
-          child: Card(
-            child: Column(
-              children: [
-                ListTile(
-                  title: Text(snapData["title"]),
-                  subtitle: Text(snapData["description"]),
-                  leading: CircleAvatar(
-                      radius: 36, child: Text(snapData["title"].toString()[0])),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
+    return Center(
+      child: Column(
+        children: <Widget>[
+          Container(
+            height: 200,
+            child: Card(
+              child: Column(
+                children: [
+                  ListTile(
+                    title: Text(snapData["title"]),
+                    subtitle: Text(snapData["description"]),
+                    leading: CircleAvatar(
+                        backgroundColor: Colors.white,
+                        radius: 70,
+                        child: ProductPoster(poster: snapData["img"])),
+                  ),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Spacer(),
@@ -48,41 +51,43 @@ class AccountCard extends StatelessWidget {
                       Spacer(),
                     ],
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Spacer(),
-                    IconButton(
-                      icon: Icon(Icons.edit),
-                      onPressed: () {
-                        showEditDialog(context, nameInputController,
-                            titleInputController, descriptionInputController,
-                            snapDocId);
-                        print(snapDocId);
-                      },
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.delete_forever),
-                      onPressed: () async {
-                        var collectionRef =
-                            FirebaseFirestore.instance.collection("board");
-                        await collectionRef.doc(snapDocId).delete();
-                        print(snapDocId);
-                      },
-                    ),
-                    Spacer()
-                  ],
-                ),
-              ],
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Spacer(),
+                      IconButton(
+                        icon: Icon(Icons.edit),
+                        onPressed: () {
+                          showEditDialog(
+                              context,
+                              nameInputController,
+                              titleInputController,
+                              descriptionInputController,
+                              snapDocId);
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.delete_forever),
+                        onPressed: () async {
+                          var collectionRef =
+                              FirebaseFirestore.instance.collection("board");
+                          await collectionRef.doc(snapDocId).delete();
+                        },
+                      ),
+                      Spacer()
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
-  showEditDialog(BuildContext context,
+  showEditDialog(
+      BuildContext context,
       TextEditingController nameInputController,
       TextEditingController titleInputController,
       TextEditingController descriptionInputController,
@@ -135,7 +140,8 @@ class AccountCard extends StatelessWidget {
               if (titleInputController.text.isNotEmpty &&
                   nameInputController.text.isNotEmpty &&
                   descriptionInputController.text.isNotEmpty) {
-                FirebaseFirestore.instance.collection("board")
+                FirebaseFirestore.instance
+                    .collection("board")
                     .doc(snapDocId)
                     .update({
                   "name": nameInputController.text,
