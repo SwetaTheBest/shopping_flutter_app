@@ -1,3 +1,5 @@
+import 'package:assignment_dec_flutter_app/ui/bottom/about_us.dart';
+import 'package:assignment_dec_flutter_app/ui/bottom/map_screen.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -36,6 +38,18 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      if (_selectedIndex == 0) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ProductCard()),
+        );
+      }
+      if (_selectedIndex == 2) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => LocateUs()),
+        );
+      }
     });
   }
 
@@ -45,15 +59,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     nameString = "Welcome";
   }
 
-  // _onItemTapped(String name) {
-  //   setState(() {
-  //     nameString = name;
-  //     // Navigator.push(
-  //     //   context,
-  //     //   MaterialPageRoute(builder: (context) => name),
-  //     // );
-  //   });
-  // }
+  // void _onTapped(String name) {
+  //    setState(() {
+  //      nameString = name;
+  //      Navigator.push(
+  //        context,
+  //        MaterialPageRoute(builder: (context) => name),
+  //      );
+  //    });
+  //  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +79,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       body: Center(
         child: Column(
           children: <Widget>[
-            _widgetOptions.elementAt(_selectedIndex),
+            // _widgetOptions.elementAt(_selectedIndex),
             Text(
               nameString,
               style: TextStyle(
@@ -99,7 +113,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ListTile(
               leading: Icon(Icons.home),
               title: Text('HOME'),
-              //_onItemTapped("MyHomePage"),
             ),
             ListTile(
               leading: Icon(Icons.money_rounded),

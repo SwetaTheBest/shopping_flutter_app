@@ -1,6 +1,12 @@
 import 'package:assignment_dec_flutter_app/ui/splash.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-void main() {
+
+import 'cloud/firebase_data.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -12,7 +18,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: SplashScreen(),
+      home: FirebaseData(),
+      //SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
