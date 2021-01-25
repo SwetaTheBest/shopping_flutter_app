@@ -18,8 +18,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: FirebaseData(),
-      //SplashScreen(),
+      home: SplashScreen(),
+      //FirebaseData(),
+
       debugShowCheckedModeBanner: false,
     );
   }

@@ -30,7 +30,8 @@ class _FirebaseDataState extends State<FirebaseData> {
       floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () {
-            _showDialog(context);
+            showEditDialog(context, nameInputController, titleInputController,
+                descriptionInputController);
           }),
       body: StreamBuilder(
         stream: firestoreDb,
@@ -47,7 +48,11 @@ class _FirebaseDataState extends State<FirebaseData> {
     );
   }
 
-  _showDialog(BuildContext context) async {
+  showEditDialog(
+      BuildContext context,
+      TextEditingController nameInputController,
+      TextEditingController titleInputController,
+      TextEditingController descriptionInputController) async {
     await showDialog(
       context: context,
       child: AlertDialog(
