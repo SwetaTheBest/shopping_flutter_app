@@ -16,6 +16,7 @@ class _LocateUsState extends State<LocateUs> {
 
   _onMapCreated(GoogleMapController mapController) {
     _googleMapController = mapController;
+    _onAddMarkerButtonPressed();
   }
 
   _onCameraMove(CameraPosition cameraPosition) {
@@ -37,6 +38,7 @@ class _LocateUsState extends State<LocateUs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text("Locate Us"), centerTitle: true),
       backgroundColor: Colors.white,
       body: Container(
         width: double.infinity,
@@ -45,7 +47,6 @@ class _LocateUsState extends State<LocateUs> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Locate us"),
             SizedBox(
               height: 20,
             ),
@@ -64,7 +65,7 @@ class _LocateUsState extends State<LocateUs> {
                     // these will help to detect gesture for map only start
                     gestureRecognizers: {
                       Factory<OneSequenceGestureRecognizer>(
-                        () => EagerGestureRecognizer(),
+                            () => EagerGestureRecognizer(),
                       ),
                     },
                     // these will help to detect gesture for map only end

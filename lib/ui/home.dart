@@ -1,5 +1,6 @@
 import 'package:assignment_dec_flutter_app/ui/bottom/about_us.dart';
 import 'package:assignment_dec_flutter_app/ui/bottom/map_screen.dart';
+import 'package:assignment_dec_flutter_app/ui/bottom/special_discount.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -48,6 +49,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => LocateUs()),
+        );
+      }
+      if (_selectedIndex == 3) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SpecialDiscount()),
         );
       }
     });
