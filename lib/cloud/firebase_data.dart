@@ -1,3 +1,4 @@
+import 'package:assignment_dec_flutter_app/ui/account_card.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +39,8 @@ class _FirebaseDataState extends State<FirebaseData> {
           return ListView.builder(
               itemCount: snapshot.data.documents.length,
               itemBuilder: (context, int index) {
-                return Text(snapshot.data.documents[index]['title']);
+                // return Text(snapshot.data.documents[index]['title']);
+                return AccountCard(snap: snapshot.data, index: index);
               });
         },
       ),
@@ -79,6 +81,39 @@ class _FirebaseDataState extends State<FirebaseData> {
             ),
           ],
         ),
+        actions: <Widget>[
+          FlatButton(
+            onPressed: () {
+              nameInputController.clear();
+              titleInputController.clear();
+              descriptionInputController.clear();
+              Navigator.pop(context);
+            },
+            child: Text('Cancel'),
+          ),
+          FlatButton(
+            onPressed: () {
+              if (titleInputController.text.isNotEmpty &&
+                  nameInputController.text.isNotEmpty &&
+                  descriptionInputController.text.isNotEmpty) {
+                FirebaseFirestore.instance.collection("board")
+                    .add({
+                  "name": nameInputController.text,
+                  "title": titleInputController.text,
+                  "description": descriptionInputController.text,
+                  "timestamp": DateTime.now()
+                }).then((response) {
+                  print(response.id);
+                  Navigator.pop(context);
+                  nameInputController.clear();
+                  titleInputController.clear();
+                  descriptionInputController.clear();
+                }).catchError((error) => print(error));
+              }
+            },
+            child: Text('Save'),
+          )
+        ],
       ),
     );
   }
