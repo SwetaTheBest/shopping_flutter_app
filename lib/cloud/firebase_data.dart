@@ -122,7 +122,6 @@ class _FirebaseDataState extends State<FirebaseData> {
                   "img": imgInputController.text,
                   "timestamp": DateTime.now()
                 }).then((response) {
-                  print(response.id);
                   Navigator.pop(context);
                   nameInputController.clear();
                   titleInputController.clear();
