@@ -1,14 +1,29 @@
 
 # Assignment Dec 31, 2020
 
-1. `Navigation Drawer`
+1. `Home`
 
-![Navigation Drawer](/android/app/src/main/res/drawable/screen_drawer.png)
+![Navigation Drawer](/android/app/src/main/res/drawable/screen_1.png)
 
 2. `Bottom Navigation`
 
-![Bottom Navigation](/android/app/src/main/res/drawable/about_us.png)
+![Bottom Navigation](/android/app/src/main/res/drawable/screen_2.png)
 
+
+![Bottom Navigation](/android/app/src/main/res/drawable/screen_3.png)
+
+![Bottom Navigation](/android/app/src/main/res/drawable/screen_4.png)
+
+![Bottom Navigation](/android/app/src/main/res/drawable/screen_5.png)
+
+![Bottom Navigation](/android/app/src/main/res/drawable/screen_6.png)
+
+![Bottom Navigation](/android/app/src/main/res/drawable/screen_7.png)
+
+
+![Bottom Navigation](/android/app/src/main/res/drawable/screen_8.png)
+
+![Bottom Navigation](/android/app/src/main/res/drawable/screen_9.png)
 
 
 # With love from  **Sweta** 
