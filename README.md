@@ -5,20 +5,30 @@
 
 ![Navigation Drawer](/android/app/src/main/res/drawable/screen_1.png)
 
-2. `Bottom Navigation`
+2. `Products list`
 
 ![Bottom Navigation](/android/app/src/main/res/drawable/screen_2.png)
 
+3. `Navigation drawer`
 
 ![Bottom Navigation](/android/app/src/main/res/drawable/screen_3.png)
 
+4. `Redeem`
+
 ![Bottom Navigation](/android/app/src/main/res/drawable/screen_4.png)
+
+5. `User's list`
 
 ![Bottom Navigation](/android/app/src/main/res/drawable/screen_5.png)
 
+6. `FAQ`
+
 ![Bottom Navigation](/android/app/src/main/res/drawable/screen_6.png)
 
+7. `Products list`
+
 ![Bottom Navigation](/android/app/src/main/res/drawable/screen_7.png)
+
 
 
 ![Bottom Navigation](/android/app/src/main/res/drawable/screen_8.png)
