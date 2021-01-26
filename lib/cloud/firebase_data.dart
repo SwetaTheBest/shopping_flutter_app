@@ -12,6 +12,7 @@ class _FirebaseDataState extends State<FirebaseData> {
   TextEditingController nameInputController;
   TextEditingController titleInputController;
   TextEditingController descriptionInputController;
+  TextEditingController imgInputController;
 
   @override
   void initState() {
@@ -19,6 +20,7 @@ class _FirebaseDataState extends State<FirebaseData> {
     nameInputController = TextEditingController();
     titleInputController = TextEditingController();
     descriptionInputController = TextEditingController();
+    imgInputController = TextEditingController();
   }
 
   @override
@@ -31,7 +33,7 @@ class _FirebaseDataState extends State<FirebaseData> {
           child: Icon(Icons.add),
           onPressed: () {
             showEditDialog(context, nameInputController, titleInputController,
-                descriptionInputController);
+                descriptionInputController, imgInputController);
           }),
       body: StreamBuilder(
         stream: firestoreDb,
@@ -52,7 +54,8 @@ class _FirebaseDataState extends State<FirebaseData> {
       BuildContext context,
       TextEditingController nameInputController,
       TextEditingController titleInputController,
-      TextEditingController descriptionInputController) async {
+      TextEditingController descriptionInputController,
+      TextEditingController imgInputController) async {
     await showDialog(
       context: context,
       child: AlertDialog(
@@ -64,7 +67,7 @@ class _FirebaseDataState extends State<FirebaseData> {
               child: TextField(
                 autofocus: true,
                 autocorrect: true,
-                decoration: InputDecoration(labelText: "Your Name"),
+                decoration: InputDecoration(labelText: "Product Name"),
                 controller: nameInputController,
               ),
             ),
@@ -72,7 +75,7 @@ class _FirebaseDataState extends State<FirebaseData> {
               child: TextField(
                 autofocus: true,
                 autocorrect: true,
-                decoration: InputDecoration(labelText: " title"),
+                decoration: InputDecoration(labelText: "Product title"),
                 controller: titleInputController,
               ),
             ),
@@ -80,8 +83,16 @@ class _FirebaseDataState extends State<FirebaseData> {
               child: TextField(
                 autofocus: true,
                 autocorrect: true,
-                decoration: InputDecoration(labelText: " description"),
+                decoration: InputDecoration(labelText: "Product description"),
                 controller: descriptionInputController,
+              ),
+            ),
+            Expanded(
+              child: TextField(
+                autofocus: true,
+                autocorrect: true,
+                decoration: InputDecoration(labelText: "Product image url"),
+                controller: imgInputController,
               ),
             ),
           ],
@@ -92,6 +103,7 @@ class _FirebaseDataState extends State<FirebaseData> {
               nameInputController.clear();
               titleInputController.clear();
               descriptionInputController.clear();
+              imgInputController.clear();
               Navigator.pop(context);
             },
             child: Text('Cancel'),
@@ -100,12 +112,14 @@ class _FirebaseDataState extends State<FirebaseData> {
             onPressed: () {
               if (titleInputController.text.isNotEmpty &&
                   nameInputController.text.isNotEmpty &&
+                  imgInputController.text.isNotEmpty &&
                   descriptionInputController.text.isNotEmpty) {
                 FirebaseFirestore.instance.collection("board")
                     .add({
                   "name": nameInputController.text,
                   "title": titleInputController.text,
                   "description": descriptionInputController.text,
+                  "img": imgInputController.text,
                   "timestamp": DateTime.now()
                 }).then((response) {
                   print(response.id);
