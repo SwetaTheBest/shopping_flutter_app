@@ -29,11 +29,11 @@
 
 ![Bottom Navigation](/android/app/src/main/res/drawable/screen_7.png)
 
-8. `Update user`
+8. `Update Products list`
 
 ![Bottom Navigation](/android/app/src/main/res/drawable/screen_8.png)
 
-9. `Update Products list`
+9. `Add Product`
 
 ![Bottom Navigation](/android/app/src/main/res/drawable/screen_9.png)
 
